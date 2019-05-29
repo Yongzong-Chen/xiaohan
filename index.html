@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>晓晗大宝贝 - 儿童节快乐</title>
+	<style type="text/css">
+		*{padding: 0;margin: 0;}
+		.img{
+			position: relative;
+			position: absolute;
+			width: 7.5rem;
+			height: 8rem;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+		}
+		.img img{
+			width: 7.5rem;
+			height: auto;
+		}
+		.img .arm{
+			width: 1.5rem;
+			height: auto;
+			position: absolute;
+			top: 4.7rem;
+			left: 3.33rem;
+			z-index: 9;
+			transform-origin:.3rem .2rem;
+			-webkit-transform-origin:.3rem .2rem;
+			animation:run 2.5s infinite;
+			-webkit-animation:run 2.5s infinite; 
+		}
+		@-webkit-keyframes run {	
+			0% {
+				transform:rotate(0deg);
+				-webkit-transform:rotate(0deg); 
+			}
+			50%{
+				transform:rotate(15deg);
+				-webkit-transform:rotate(15deg); 
+			}
+			100% {
+			   transform:rotate(0deg);
+			   -webkit-transform:rotate(0deg); 
+			}
+		}
+		keyframes run {	
+			0% {
+				transform:rotate(0deg);
+				-webkit-transform:rotate(0deg); 
+			}
+			50%{
+				transform:rotate(15deg);
+				-webkit-transform:rotate(15deg); 
+			}
+			100% {
+			   transform:rotate(0deg);
+			   -webkit-transform:rotate(0deg); 
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap" id="wrap">
+		<div class="img">
+			<img src="img/bg.jpg" >
+			<img src="img/ch.png" class="arm">
+		</div>
+	</div>
+	<script type="text/javascript">
+		(function() {
+			function changeFixedW() {
+				var html = document.querySelector('html');
+				var width = html.getBoundingClientRect().width;
+				html.style.fontSize = width / 7.5 + 'px';
+			}
+			function displayWindowSize(){
+				var h = document.documentElement.clientHeight;
+				document.getElementById('wrap').style.backgroundColor ="#012563";
+				document.getElementById('wrap').style.height = h + 'px';
+			}
+			displayWindowSize();
+			changeFixedW();
+			window.addEventListener('resize',changeFixedW,false);
+			window.addEventListener('resize',displayWindowSize,false);
+		})();
+	</script>
+</body>
+</html>
