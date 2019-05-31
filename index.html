@@ -31,8 +31,8 @@
 			z-index: 9;
 			transform-origin:.3rem .2rem;
 			-webkit-transform-origin:.3rem .2rem;
-			animation:run 2.5s infinite;
-			-webkit-animation:run 2.5s infinite; 
+			animation:run 2.5s 7s infinite;
+			-webkit-animation:run 2.5s 7s infinite; 
 		}
 		@-webkit-keyframes run {	
 			0% {
@@ -70,7 +70,7 @@
 			<img src="img/bg.jpg" >
 			<img src="img/ch.png" class="arm">
 		</div>
-		<audio src="http://www.ytmp3.cn/down/59561.mp3" autoplay></audio>
+		<audio src="http://www.ytmp3.cn/down/59560.mp3" autoplay></audio>
 	</div>
 	<script type="text/javascript">
 		(function() {
@@ -86,6 +86,15 @@
 			}
 			displayWindowSize();
 			changeFixedW();
+			audioAutoPlay();
+			//--创建页面监听，等待微信端页面加载完毕 触发音频播放
+			 function audioAutoPlay() {
+				var audio = document.getElementById('audio');
+				audio.play();
+				document.addEventListener("WeixinJSBridgeReady", function () {
+					audio.play();
+				}, false);
+			}
 			window.addEventListener('resize',changeFixedW,false);
 			window.addEventListener('resize',displayWindowSize,false);
 		})();
